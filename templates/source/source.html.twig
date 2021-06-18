@@ -1,0 +1,101 @@
+{% extends 'nav.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container-fluid" style="margin-top: 1em">
+        <div class="row">
+            <div class="col col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('home') }}">Tableau de bord</a></li>
+                        <li class="breadcrumb-item">Sources</li>
+                    </ol>
+                </nav>
+            </div>
+            {% for message in app.session.flashbag.get('sources_add') %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}!</strong>
+                    <button type="button" class="btn-close"  data-bs-dismiss="alert"  aria-label="Close"></button>
+                </div>
+            {% endfor %}
+            <div class="col col-md-12 col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                        <h5 class="card-title">Liste des sources</h5>
+                        <hr>
+                        <table class="table  table-responsive table-bordered table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nom</th>
+                                <th>Nom d'utilisateur facebook</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if sources | length == 0 %}
+                                <p class="text-center">Aucune source n'a été ajoutée pour l'instant</p>
+                            {% else %}
+                                {% for source in sources%}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ source.libelle }}</td>
+                                        <td>{{ source.sourceUsername }}</td>
+                                        <td></td>
+                                    </tr>
+                                {% endfor %}
+
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col col-md-12 col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                        <h5 class="card-title">Creer une source</h5>
+                        <hr>
+
+                        {{ form_start(form) }}
+
+                        {{ form_errors(form) }}
+
+                        <div class="mb-3">
+                            {{ form_label(form.libelle, "Nom de la source : ", {'label_attr': {'class': 'libelle_label'}}) }}
+                            {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
+                            <div class="form-error" style="color: red">
+                                {{ form_errors(form.libelle) }}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(form.sourceUsername, "Nom d'utulisateur de la souce. Ex:@alwatwancomores   : ", {'label_attr': {'class': 'sourceUsername_label'}}) }}
+                            {{ form_widget(form.sourceUsername, {'attr': {'class': 'form-control'}}) }}
+                            <div class="form-error" style="color: red">
+                                {{ form_errors(form.sourceUsername) }}
+                            </div>
+                        </div>
+                        </div>
+
+                        <hr>
+                        <div class="col col-12">
+                            <div class="row">
+                                <div class="col col-6">
+                                    {{ form_row(form.cancel,{'attr':{'class': 'btn btn-outline-secondary btn-recueil'}}) }}
+                                </div>
+                                <div class="col col-6">
+                                    {{ form_row(form.submit,{'attr':{'class': 'btn btn-outline-success btn-recueil'}}) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

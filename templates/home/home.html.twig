@@ -1,0 +1,15 @@
+{% extends 'nav.html.twig' %}
+
+{% block body %}
+
+
+    {% for message in app.session.flashbag.get('login') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Bienvenue {{ user.nom }} {{ user.prenom }}. Derniere connexion {{ user.lastLoginForUser | date('d-m-Y  H:i:s') }}</strong>
+            <button type="button" class="btn-close"  data-bs-dismiss="alert"     aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+
+
+{% endblock %}

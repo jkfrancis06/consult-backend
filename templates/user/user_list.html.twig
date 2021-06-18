@@ -1,0 +1,61 @@
+{% extends 'nav.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid" style="margin-top: 1em">
+        <div class="row d-flex justify-content-center" >
+            <div class="col col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('home') }}">Tableau de bord</a></li>
+                        <li class="breadcrumb-item">Utilisateurs</li>
+                        <li class="breadcrumb-item">Liste des utilisateurs</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col col-md-12 col-lg-6">
+                {{ dump(users) }}
+
+                <h5 class="card-title">Liste des utilisateurs</h5>
+                <hr>
+                <table class="table  table-responsive table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Date de creation</th>
+                        <th>Derniere connexion</th>
+                        <th>Nombre de recueils</th>
+                        <th>Statut</th>
+                        <th>Compte</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if users | length == 0 %}
+                        <p class="text-center">Aucun utilisateur</p>
+                    {% else %}
+                        {% for user in users%}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.nom }}</td>
+                                <td>{{ user.prenom }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.createdAt | date('d-m-Y  H:i:s')  }}</td>
+                                <td>{{ user.lastLogin | date('d-m-Y  H:i:s') }}</td>
+                                <td>{{ user.recueils | length }}</td>
+                                <td>{{ user.isActive }}</td>
+                                <td>{{ user.isDeleted }}</td>
+                            </tr>
+                        {% endfor %}
+
+                    {% endif %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

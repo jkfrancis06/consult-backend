@@ -1,0 +1,70 @@
+{% extends 'nav.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid" style="margin-top: 1em">
+        <div class="row d-flex justify-content-center" >
+            <div class="col col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('home') }}">Tableau de bord</a></li>
+                        <li class="breadcrumb-item">Utilisateurs</li>
+                        <li class="breadcrumb-item">Creer un utilisateur</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col col-md-12 col-lg-6">
+                <div class="card" >
+                    <div class="card-body">
+                        <h5 class="card-title">Creer un utilisateur</h5>
+                        <hr>
+                        <span class="text-danger">{{ form_errors(form) }}</span>
+                        {{ form_start(form) }}
+                        <div class="mb-3">
+                            {{ form_label(form.username, "Nom d'utilisateur : ", {'label_attr': {'class': 'char_label'}}) }}
+                            {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(form.nom, "Nom : ", {'label_attr': {'class': 'char_label'}}) }}
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(form.prenom, "Prenom : ", {'label_attr': {'class': 'char_label'}}) }}
+                            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.password, "Mot de passe : ", {'label_attr': {'class': 'char_label'}}) }}
+                            {{ form_widget(form.password, {'attr': {'class': 'form-control form-select'}}) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.confirmPassword, "Confirmer le mot de passe : ", {'label_attr': {'class': 'char_label'}}) }}
+                            {{ form_widget(form.confirmPassword, {'attr': {'class': 'form-control form-select'}}) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.roleUtilisateur, "Role : ", {'label_attr': {'class': 'char_label'}}) }}
+                            {{ form_widget(form.roleUtilisateur, {'attr': {'class': 'form-control form-select'}}) }}
+                        </div>
+
+                        <hr style="margin-top: 2rem">
+                        <div class="col col-12">
+                            <div class="row">
+                                <div class="col col-6">
+                                    {{ form_row(form.cancel,{'attr':{'class': 'btn btn-outline-secondary btn-recueil'}}) }}
+                                </div>
+                                <div class="col col-6">
+                                    {{ form_row(form.submit,{'attr':{'class': 'btn btn-outline-success btn-recueil'}}) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

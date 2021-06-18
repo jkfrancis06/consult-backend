@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row" style="margin-top: 20vh">
+            <div class="col col-3"></div>
+            <div class="col col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Connectez-vous
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                </div>
+                            {% endif %}
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Login: </label>
+                                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mot de passe: </label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                            </div>
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+                            <button type="submit" class="btn btn-primary">Connexion</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-3"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
