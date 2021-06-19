@@ -3,10 +3,29 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/build/js/chart/chart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +201,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/build/js/chart" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -197,11 +216,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/build/js/chart" />
       <recent name="$PROJECT_DIR$/public/build/js" />
       <recent name="$PROJECT_DIR$/public/build/css" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/config/packages" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.LoginFormAuthenticator.php">
@@ -235,12 +254,23 @@
       <workItem from="1624033721546" duration="21000" />
       <workItem from="1624033938152" duration="17000" />
       <workItem from="1624033993282" duration="46000" />
-      <workItem from="1624034042191" duration="5641000" />
+      <workItem from="1624034042191" duration="8708000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="497" y="78" width="412" height="645" key="#com.intellij.ide.util.MemberChooser" timestamp="1623767882291">
@@ -327,9 +357,10 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623861551085" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1624088416161">
-      <screen x="50" y="27" width="1316" height="741" />
+    <state x="1717" y="75" width="736" height="824" key="search.everywhere.popup" timestamp="1624096177627">
+      <screen x="1366" y="0" width="1440" height="900" />
     </state>
+    <state x="1717" y="75" width="736" height="824" key="search.everywhere.popup/0.159.1366.609/1366.0.1440.900@1366.0.1440.900" timestamp="1624096177627" />
     <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624088416161" />
   </component>
 </project>
