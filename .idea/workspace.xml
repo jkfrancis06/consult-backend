@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +235,7 @@
       <workItem from="1624033721546" duration="21000" />
       <workItem from="1624033938152" duration="17000" />
       <workItem from="1624033993282" duration="46000" />
-      <workItem from="1624034042191" duration="2937000" />
+      <workItem from="1624034042191" duration="5641000" />
     </task>
     <servers />
   </component>
@@ -333,9 +327,9 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623861551085" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1624036365327">
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1624088416161">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624036365327" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624088416161" />
   </component>
 </project>
