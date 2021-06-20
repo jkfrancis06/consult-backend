@@ -22,31 +22,21 @@ class RecueilRepository extends ServiceEntityRepository
     // /**
     //  * @return Recueil[] Returns an array of Recueil objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Recueil
+
+
+    public function getRecueilsGroupByUser($user)
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $qb = $this->createQueryBuilder('r');
+
+
+        $qb ->andWhere('r.utilisateur = :utilisateur')
+            ->setParameter('utilisateur', $user->getId());
+
+        return  $qb->getQuery()->getResult();
+
     }
-    */
+
 
     public function findByQuery($user,$startdate,$enddate,$sources,$categories)
     {

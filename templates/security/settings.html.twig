@@ -1,0 +1,90 @@
+{% extends 'nav.html.twig' %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="row" style="margin-top: 1em">
+        <div class="col col-md-12 col-lg-6">
+            <div class="card" >
+                <div class="card-body">
+                    <h5 class="card-title">Mes parametres</h5>
+                    <hr>
+
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom </label>
+                        <input disabled readonly value="{{ user.nom }}" type="text" class="form-control" id="nom">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="prenom" class="form-label">Prenom</label>
+                        <input disabled readonly  value="{{ user.prenom }}" type="text" class="form-control" id="prenom">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nom d'utilisateur</label>
+                        <input disabled readonly  value="{{ user.username }}" type="text" class="form-control" id="username">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastLogin" class="form-label">Derniere connexion</label>
+                        <input disabled readonly  value="{{ user.lastLoginForUser | date('d-m-Y  H:i:s') }}" type="text" class="form-control" id="lastLogin">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-md-12 col-lg-6">
+
+            <div class="card">
+                <div class="card-header">
+                    Modifier mon mot de passe
+                </div>
+                <div class="card-body">
+                    {{ form_start(form) }}
+
+                    <div class="form-error" style="color: red">
+                        {{ form_errors(form) }}
+                    </div>
+
+
+                    <div class="mb-3">
+                        {{ form_label(form.oldPassword, "Ancien mot de passe : ", {'label_attr': {'class': 'libelle_label'}}) }}
+                        {{ form_widget(form.oldPassword, {'attr': {'class': 'form-control'}}) }}
+                        <div class="form-error" style="color: red">
+                            {{ form_errors(form.oldPassword) }}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_label(form.plainPassword.first, "Nouveau mot de passe : ", {'label_attr': {'class': 'libelle_label'}}) }}
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+                        <div class="form-error" style="color: red">
+                            {{ form_errors(form.plainPassword.first) }}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_label(form.plainPassword.second, "Confirmer : ", {'label_attr': {'class': 'libelle_label'}}) }}
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+                        <div class="form-error" style="color: red">
+                            {{ form_errors(form.plainPassword.second) }}
+                        </div>
+                    </div>
+
+
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+{% endblock %}

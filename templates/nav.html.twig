@@ -71,9 +71,17 @@
                         </ul>
                     </li> -->
 
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Parametres</a>
-                    </li>
+                    {% if active == "settings" %}
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="{{ path('app_settings') }}">Parametres</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_settings') }}">Parametres</a>
+                        </li>
+                    {% endif %}
+
+
                 </ul>
                 <a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Deconnexion</a>
             </div>
