@@ -25,5 +25,10 @@ services:
         tags:
             - { name: 'kernel.event_listener', event: 'security.interactive_login' }
 
+    form.type.datalist_type:
+        class: App\Form\Type\DatalistType
+        tags:
+            - { name: form.type, alias: datalist }
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

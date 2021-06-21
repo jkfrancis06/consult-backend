@@ -19,6 +19,8 @@
                     <h5 class="card-title">Creer un recueil</h5>
                     <hr>
                     {{ form_start(form) }}
+                    <span class="text-danger">{{ form_errors(form) }}</span>
+
                     <div class="mb-3">
                         {{ form_label(form.lienPost, "Lien du post : ", {'label_attr': {'class': 'char_label'}}) }}
                         {{ form_widget(form.lienPost, {'attr': {'class': 'form-control'}}) }}
@@ -34,7 +36,13 @@
 
                     <div class="mb-3">
                         {{ form_label(form.source, "Source : ", {'label_attr': {'class': 'char_label'}}) }}
-                        {{ form_widget(form.source, {'attr': {'class': 'form-control form-select'}}) }}
+                        {{ form_widget(form.source, {'attr': {'class': 'form-control','list':'source_datalist'}}) }}
+                        <datalist id="source_datalist">
+                            {% for source in sources %}
+                            <option value="{{ source.libelle }}">
+                            {% endfor %}
+                        </datalist>
+
                     </div>
 
                     <div class="mb-3">

@@ -30,7 +30,6 @@
                                 <th></th>
                                 <th>Nom</th>
                                 <th>Nom d'utilisateur facebook</th>
-                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -42,7 +41,6 @@
                                         <td></td>
                                         <td>{{ source.libelle }}</td>
                                         <td>{{ source.sourceUsername }}</td>
-                                        <td></td>
                                     </tr>
                                 {% endfor %}
 
@@ -71,7 +69,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            {{ form_label(form.sourceUsername, "Nom d'utulisateur de la souce. Ex:@alwatwancomores   : ", {'label_attr': {'class': 'sourceUsername_label'}}) }}
+                            {{ form_label(form.sourceUsername, "Nom d'utulisateur de la souce : ", {'label_attr': {'class': 'sourceUsername_label'}}) }}
                             {{ form_widget(form.sourceUsername, {'attr': {'class': 'form-control'}}) }}
                             <div class="form-error" style="color: red">
                                 {{ form_errors(form.sourceUsername) }}

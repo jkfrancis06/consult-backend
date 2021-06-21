@@ -82,6 +82,16 @@
                     {% endif %}
 
 
+                    {% if is_granted('ROLE_ADMIN') == true %}
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_settings') }}">Espace Adminstration</a>
+                        </li>
+
+                    {% endif %}
+
+
+
                 </ul>
                 <a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Deconnexion</a>
             </div>

@@ -150,6 +150,7 @@ class RecueilController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
         return $this->render('recueil/nouveau_recueil.html.twig',[
             'receuils' => $receuils,
             'form' => $form->createView(),
+            'sources' => $this->getDoctrine()->getManager()->getRepository(Source::class)->findAll(),
             'active' => "receuils"
         ]);
 

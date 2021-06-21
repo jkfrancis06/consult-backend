@@ -1,0 +1,10 @@
+{% block datalist_widget %}
+    <input list="{{ id }}_list" {{ block('widget_attributes') }}{% if value is not empty %}value="{{ value }}"{% endif %}>
+    <datalist id="{{ id }}_list">
+        {% for choice in choices %}
+            <option>
+                {{ choice.label }}
+            </option>
+        {% endfor %}
+    </datalist>
+{% endblock %}

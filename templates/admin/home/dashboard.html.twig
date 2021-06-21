@@ -1,0 +1,73 @@
+{% extends 'adminNav.html.twig' %}
+
+{% block javascripts %}
+    <script src="{{ asset('/build/js/vue/vue.js') }}"></script>
+    <script src="{{ asset('/build/js/vue/axios.min.js') }}"></script>
+{% endblock %}
+
+
+
+{% block body %}
+
+    <div id="app" class="container-fluid" style="margin-top: 1em">
+        {% for message in app.session.flashbag.get('login') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Bienvenue {{ user.nom }} {{ user.prenom }}. Derniere connexion {{ user.lastLoginForUser | date('d-m-Y  H:i:s') }}</strong>
+                <button type="button" class="btn-close"  data-bs-dismiss="alert"     aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
+        <h4>Tableau de bord</h4>
+        <hr>
+
+        <div v-if="isLoading == true" class="loading">
+            <div class="loader"></div>
+        </div>
+
+        <div class="row overlay">
+            <div class="col col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Recueils par categorie
+                    </div>
+                    <div class="card-body">
+                        <canvas id="catChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Recueils par source
+                    </div>
+                    <div class="card-body">
+                        <canvas id="sourceChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-12" style="margin-top: 1em">
+                <div class="card">
+                    <div class="card-header">
+                        Recueils des 7 derniers jours
+                    </div>
+                    <div class="card-body">
+                        <canvas id="dayChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block bottom_js %}
+    <script  src="{{ asset('/build/js/chart/chart.js') }}"></script>
+    <script  src="{{ asset('/build/js/chart/adminhomechart.js') }}"></script>
+    <script>
+
+    </script>
+{% endblock %}

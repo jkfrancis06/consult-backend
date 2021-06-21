@@ -24,10 +24,9 @@ class SourceType extends AbstractType
                 ]
             ])
             ->add('sourceUsername',TextType::class, [
-                'label' => '@ de la source:',
+                'label' => 'Lien de la page: ',
                 'constraints' => [
-                    new NotBlank(),
-                    new Regex('/^[@]/','La source doit commencer par un @')
+                    new NotBlank()
                 ]
             ])
             ->add('submit', SubmitType::class, ['label' => 'Enregistrer'])

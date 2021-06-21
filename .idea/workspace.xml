@@ -23,16 +23,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/build/js/chart/userhomechart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/settings.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/build/js/chart/adminhomechart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminHomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/DataTransformer/SourceToStringTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Type/DatalistType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/home/dashboard.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/adminNav.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/form/fields.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RecueilRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecueilRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RecueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RecueilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Source.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RecueilType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RecueilType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ResetPasswordType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResetPasswordType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SourceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SourceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categorie/categorie.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie/categorie.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recueil/nouveau_recueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recueil/nouveau_recueil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/source/source.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/source/source.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +211,12 @@
       <path value="$PROJECT_DIR$/vendor/psr/link" />
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
       <path value="$PROJECT_DIR$/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1tz2CKXozlmxYacqG85ynRYIl3J" />
@@ -209,7 +229,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/build/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/build/js/chart" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -223,12 +243,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/build/js" />
       <recent name="$PROJECT_DIR$/public/build/js/chart" />
+      <recent name="$PROJECT_DIR$/templates/user" />
+      <recent name="$PROJECT_DIR$/public/build/js" />
       <recent name="$PROJECT_DIR$/public/build/css" />
       <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/config/packages" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.LoginFormAuthenticator.php">
@@ -263,7 +286,7 @@
       <workItem from="1624033938152" duration="17000" />
       <workItem from="1624033993282" duration="46000" />
       <workItem from="1624034042191" duration="10283000" />
-      <workItem from="1624167143791" duration="11893000" />
+      <workItem from="1624167143791" duration="24704000" />
     </task>
     <servers />
   </component>
@@ -287,15 +310,19 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="497" y="78" width="412" height="645" key="#com.intellij.ide.util.MemberChooser/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623767882291" />
+    <state x="475" y="193" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1624207396766">
+      <screen x="50" y="27" width="1316" height="741" />
+    </state>
+    <state x="475" y="193" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog/50.27.1316.741@50.27.1316.741" timestamp="1624207396766" />
     <state x="441" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1623943437750">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="441" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623943437750" />
-    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624178038276">
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624203744408">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623947311001" />
-    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/50.27.1316.741@50.27.1316.741" timestamp="1624178038276" />
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/50.27.1316.741@50.27.1316.741" timestamp="1624203744408" />
     <state x="491" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1624034037306">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
@@ -348,10 +375,11 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state width="1270" height="226" key="GridCell.Tab.2.right/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623768579498" />
-    <state x="414" y="117" width="601" height="575" key="NewPhpClassDialog" timestamp="1623946698734">
+    <state x="414" y="117" width="657" height="568" key="NewPhpClassDialog" timestamp="1624207404840">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="414" y="117" width="601" height="575" key="NewPhpClassDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623946698734" />
+    <state x="414" y="117" width="657" height="568" key="NewPhpClassDialog/50.27.1316.741@50.27.1316.741" timestamp="1624207404840" />
     <state x="197" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1624033954818">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
@@ -373,12 +401,12 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623861551085" />
-    <state x="371" y="89" width="673" height="679" key="search.everywhere.popup" timestamp="1624178501534">
+    <state x="371" y="89" width="673" height="679" key="search.everywhere.popup" timestamp="1624233664165">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="1717" y="75" width="736" height="824" key="search.everywhere.popup/0.159.1366.609/1366.0.1440.900@1366.0.1440.900" timestamp="1624096177627" />
     <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624088416161" />
-    <state x="371" y="89" width="673" height="679" key="search.everywhere.popup/50.27.1316.741@50.27.1316.741" timestamp="1624178501534" />
+    <state x="371" y="89" width="673" height="679" key="search.everywhere.popup/50.27.1316.741@50.27.1316.741" timestamp="1624233664165" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
