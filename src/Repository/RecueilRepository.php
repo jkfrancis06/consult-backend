@@ -67,4 +67,38 @@ class RecueilRepository extends ServiceEntityRepository
         return  $qb->getQuery()->getResult();
 
     }
+
+
+    public function adminFindByQuery($users,$startdate,$enddate,$sources,$categories)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+
+        if (sizeof($users) != 0) {
+            $qb ->andWhere('r.utilisateur IN (:users)')
+                ->setParameter('users', $users);
+        }
+
+        if (sizeof($sources) != 0) {
+            $qb ->andWhere('r.source IN (:sources)')
+                ->setParameter('sources', $sources);
+        }
+
+        if (sizeof($categories) != 0) {
+            $qb->andWhere('r.categorie IN (:categories)')
+                ->setParameter('categories', $categories);
+        }
+
+        if ($enddate != "" && $startdate != ""){
+            $qb->andWhere('r.createdAt BETWEEN :startdate AND :enddate')
+                ->setParameter('startdate', $startdate)
+                ->setParameter('enddate', $enddate );
+        }
+
+        $qb->orderBy('r.id', 'DESC') ;
+
+
+        return  $qb->getQuery()->getResult();
+
+    }
 }

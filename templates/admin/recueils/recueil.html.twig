@@ -1,0 +1,168 @@
+{% extends 'adminNav.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid " style="margin-top: 1em">
+        <div class="row d-flex justify-content-center">
+            <div class="col col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('home') }}">Tableau de bord</a></li>
+                        <li class="breadcrumb-item">Liste</li>
+                    </ol>
+                </nav>
+            </div>
+
+            {% for message in app.session.flashbag.get('recueil_add') %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}!</strong>
+                    <button type="button" class="btn-close"  data-bs-dismiss="alert"     aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
+            <div class="col col-md-12 col-lg-8" style="margin-top: 1em">
+
+                <div class="accordion" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Filtres:
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <form method="get">
+                                <div class="row" style="margin-top: 1em; margin-left: 1rem; margin-right: 1rem">
+                                    <input type="hidden" name="search" value="true">
+                                    <div class="col col-6">
+                                        <div class="row">
+                                            <label for="daterange" class="col-sm-3 col-form-label">Periode: </label>
+                                            <div class="col-sm-9">
+                                                <input value="{{ daterange }}" id="daterange" class="form-control" type="text" name="daterange" aria-describedby="basic-addon3"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-6">
+                                        <div class="row">
+                                            <label class="col-sm-3 col-form-label">Categorie: </label>
+                                            <div class="col-sm-9">
+                                                <select name="categories[]" class="form-select" multiple>
+                                                    {% for categorie in categories %}
+                                                        {% if categorie.id in search_categories %}
+                                                            <option value="{{ categorie.id }}" selected>{{ categorie.nom }}</option>
+                                                        {% else %}
+                                                            <option value="{{ categorie.id }}">{{ categorie.nom }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col col-6">
+                                        <div class="row">
+                                            <label  class="col-sm-3 col-form-label">Source: </label>
+                                            <div class="col-sm-9">
+                                                <select name="sources[]" class="form-select" multiple>
+                                                    {% for source in sources %}
+                                                        {% if source.id in search_sources %}
+                                                            <option value="{{ source.id }}" selected>{{ source.libelle }}</option>
+                                                        {% else %}
+                                                            <option value="{{ source.id }}">{{ source.libelle }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col col-6">
+                                        <div class="row">
+                                            <label  class="col-sm-3 col-form-label">Utilisateurs: </label>
+                                            <div class="col-sm-9">
+                                                <select name="users[]" class="form-select" multiple>
+                                                    {% for user in users %}
+                                                        {% if user.id in search_users %}
+                                                            <option value="{{ user.id }}" selected>{{ user.nom }} {{ user.prenom }}</option>
+                                                        {% else %}
+                                                            <option value="{{ user.id }}">{{ user.nom }}  {{ user.prenom }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid gap-2" style="margin-top: 1em">
+                                        <button class="btn btn-outline-primary" type="submit">Rechercher</button>
+                                    </div>
+
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col col-md-12 col-lg-8" style="margin-top: 1em"></div>
+
+            <div class="col col-md-12 col-lg-8">
+                {% for receuil in receuils%}
+                    <div class="card" style="margin-top: 1rem">
+                        <div class="card-header">
+                            {{ receuil.nature }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ receuil.source.libelle }}</h5>
+                            <p>Lien: <a target="_blank" href="{{ receuil.lienPost }}">{{  receuil.lienPost  }}</a></p>
+                            <p class="card-text">{{ receuil.contenu }}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <div class="row">
+                                <div class="col col-4">
+                                    {{ receuil.createdAt |date("d/m/Y H:i:s") }}
+                                </div>
+                                <div class="col col-4">
+                                    <span class="badge bg-success">{{ receuil.categorie.nom }}</span>
+                                </div>
+                                <div class="col col-4">
+                                    <span class="badge bg-info">{{ receuil.utilisateur.nom }} {{ receuil.utilisateur.prenom }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col col-12" style="margin-top: 2em">
+                <div class="row">
+                    <div class="col col-2"></div>
+                    <div class="col col-6">
+                        <div class="navigation">
+                            {{ knp_pagination_render(receuils,'/paginator/paginator.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block bottom_js %}
+    <script>
+        jQuery('input[name="daterange"]').daterangepicker({
+            timePicker: true,
+            timePicker24Hour: true,
+            applyButtonClasses: 'btn-primary',
+            drops: 'left',
+            locale: {
+                format: 'DD/MM/YYYY HH:mm:ss'
+            }
+        }, function(start, end, label) {
+            var send = document.getElementById('filter')
+            r = start.format('YYYY-MM-DD') + '&' + end.format('YYYY-MM-DD')
+        });
+    </script>
+{% endblock %}

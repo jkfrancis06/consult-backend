@@ -39,6 +39,17 @@
                     </li>
 
 
+                    {% if active == "admin_receuils" %}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ path('admin_receuils') }}">Liste des recueils</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ path('admin_receuils') }}">Liste des recueils</a>
+                        </li>
+                    {% endif %}
+
+
                 </ul>
                 <a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Deconnexion</a>
             </div>

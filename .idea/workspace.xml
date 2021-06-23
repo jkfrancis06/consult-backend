@@ -23,8 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/build/css/fontawesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminRecueilController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/recueils/recueil.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Source.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RecueilRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RecueilRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminNav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminNav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +213,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/build/csv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/build/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -222,11 +228,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/build/css" />
+      <recent name="$PROJECT_DIR$/templates/admin/recueils" />
       <recent name="$PROJECT_DIR$/public/build/csv" />
       <recent name="$PROJECT_DIR$/public/build/js/chart" />
       <recent name="$PROJECT_DIR$/templates/user" />
-      <recent name="$PROJECT_DIR$/public/build/js" />
-      <recent name="$PROJECT_DIR$/public/build/css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates" />
@@ -265,7 +271,7 @@
       <workItem from="1624033993282" duration="46000" />
       <workItem from="1624034042191" duration="10283000" />
       <workItem from="1624167143791" duration="31304000" />
-      <workItem from="1624340920512" duration="5723000" />
+      <workItem from="1624340920512" duration="11574000" />
     </task>
     <servers />
   </component>
@@ -297,10 +303,11 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="441" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623943437750" />
-    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624203744408">
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624465123718">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623947311001" />
+    <state x="441" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624465123718" />
     <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/50.27.1316.741@50.27.1316.741" timestamp="1624203744408" />
     <state x="1366" y="209" width="424" height="491" key="FileChooserDialogImpl" timestamp="1624268258369">
       <screen x="50" y="27" width="3236" height="1053" />
@@ -355,19 +362,21 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state width="1270" height="226" key="GridCell.Tab.2.right/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623768579498" />
-    <state x="414" y="117" width="657" height="568" key="NewPhpClassDialog" timestamp="1624207404840">
+    <state x="414" y="117" width="657" height="568" key="NewPhpClassDialog" timestamp="1624465079517">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="414" y="117" width="601" height="575" key="NewPhpClassDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623946698734" />
+    <state x="414" y="117" key="NewPhpClassDialog/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624465079517" />
     <state x="414" y="117" width="657" height="568" key="NewPhpClassDialog/50.27.1316.741@50.27.1316.741" timestamp="1624207404840" />
     <state x="197" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1624033954818">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="197" y="31" width="1022" height="737" key="SettingsEditor/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624033954818" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1624035704148">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1624471094134">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state width="498" height="446" key="SwitcherDM/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624035704148" />
+    <state width="498" height="446" key="SwitcherDM/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624471094134" />
     <state x="150" y="127" width="1116" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1624171558299">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
@@ -382,12 +391,12 @@
     </state>
     <state x="372" y="174" key="run.anything.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623861551085" />
     <state x="842" y="236" key="run.anything.popup/50.27.3236.1053@50.27.3236.1053" timestamp="1624270252924" />
-    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup" timestamp="1624436786949">
+    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup" timestamp="1624468206700">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="1717" y="75" width="736" height="824" key="search.everywhere.popup/0.159.1366.609/1366.0.1440.900@1366.0.1440.900" timestamp="1624096177627" />
     <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624088416161" />
-    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624436786949" />
+    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624468206700" />
     <state x="371" y="89" width="673" height="679" key="search.everywhere.popup/50.27.1316.741@50.27.1316.741" timestamp="1624233664165" />
     <state x="839" y="115" width="1655" height="965" key="search.everywhere.popup/50.27.3236.1053@50.27.3236.1053" timestamp="1624269915065" />
   </component>

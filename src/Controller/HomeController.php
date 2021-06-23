@@ -36,10 +36,30 @@ class HomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      */
     public function parse(){
         $sources = $this->getDoctrine()->getManager()->getRepository(Source::class)->findAll();
+        $temp_array = [];
         foreach ($sources as $source){
-            $source->setLibelle(trim($source->getLibelle()));
+            array_push($temp_array,$source);
             $em = $this->getDoctrine()->getManager();
+            $em->remove($source);
             $em->flush();
+        }
+        foreach ($temp_array as $item){
+            $source = new Source();
+            $source->setLibelle($item->getLibelle());
+            $source->setSourceUsername($item->getSourceUsername());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($source);
+            $em->flush();
+            $item_recueils = $this->getDoctrine()->getManager()->getRepository(Recueil::class)->findBy([
+               'source' => $item->getId()
+            ]);
+            foreach ($item_recueils as $recueil){
+                $recueil->setSource($source);
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+            }
+
+
         }
         return new Response('ok');
     }
