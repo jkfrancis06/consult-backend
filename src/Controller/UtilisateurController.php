@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\RecueilType;
 use App\Form\UserType;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,6 +34,7 @@ class UtilisateurController extends \Symfony\Bundle\FrameworkBundle\Controller\A
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/admin/user/create", name="add_user")
      */
     public function addUser(Request $request){
@@ -69,6 +71,7 @@ class UtilisateurController extends \Symfony\Bundle\FrameworkBundle\Controller\A
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/admin/user/list", name="list_user")
      */
     public function listUser(Request $request,  PaginatorInterface $paginator){

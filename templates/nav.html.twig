@@ -55,21 +55,7 @@
 
                     {% endif %}
 
-                    <!--<li class="nav-item dropdown">
-                        {% if active == "user" %}
-                            <a class="nav-link dropdown-toggle active"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Utilisateurs
-                            </a>
-                        {% else %}
-                            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Utilisateurs
-                            </a>
-                        {% endif %}
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ path('list_user') }}" >Liste</a></li>
-                            <li><a class="dropdown-item" href="{{ path('add_user') }}">Ajouter un utilisateur</a></li>
-                        </ul>
-                    </li> -->
+                    <!-- -->
 
                     {% if active == "settings" %}
                         <li class="nav-item ">
@@ -85,12 +71,10 @@
                     {% if is_granted('ROLE_ADMIN') == true %}
 
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ path('app_settings') }}">Espace Adminstration</a>
+                            <a class="nav-link " href="{{ path('admin_home') }}">Espace Adminstration</a>
                         </li>
 
                     {% endif %}
-
-
 
                 </ul>
                 <a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Deconnexion</a>

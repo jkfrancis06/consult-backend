@@ -1,4 +1,4 @@
-{% extends 'nav.html.twig' %}
+{% extends 'adminNav.html.twig' %}
 
 {% block body %}
 
@@ -14,11 +14,12 @@
                 </nav>
             </div>
             <div class="col col-md-12 col-lg-6">
+
                 {{ dump(users) }}
 
                 <h5 class="card-title">Liste des utilisateurs</h5>
                 <hr>
-                <table class="table  table-responsive table-bordered table-striped table-hover">
+                <table class="table  table-responsive table-bordered table-striped table-hover text-center">
                     <thead>
                     <tr>
                         <th></th>
@@ -39,14 +40,25 @@
                         {% for user in users%}
                             <tr>
                                 <td>{{ user.id }}</td>
-                                <td>{{ user.nom }}</td>
-                                <td>{{ user.prenom }}</td>
+                                <td class="text-uppercase">{{ user.nom }}</td>
+                                <td class="text-uppercase">{{ user.prenom }}</td>
                                 <td>{{ user.username }}</td>
                                 <td>{{ user.createdAt | date('d-m-Y  H:i:s')  }}</td>
                                 <td>{{ user.lastLogin | date('d-m-Y  H:i:s') }}</td>
                                 <td>{{ user.recueils | length }}</td>
-                                <td>{{ user.isActive }}</td>
-                                <td>{{ user.isDeleted }}</td>
+                                <td>
+                                    {% if user.isActive == true %}
+                                        <span class="badge bg-success">activé</span>
+                                    {% else %}
+                                        <span class="badge bg-warning">desactivé</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if user.isDeleted == true %}
+                                        <span class="badge bg-danger">supprimé</span>
+                                        
+                                    {% endif %}
+                                </td>
                             </tr>
                         {% endfor %}
 

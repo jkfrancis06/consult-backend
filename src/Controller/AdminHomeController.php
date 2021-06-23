@@ -6,6 +6,8 @@ namespace App\Controller;
 use App\Entity\Categorie;
 use App\Entity\Recueil;
 use App\Entity\Source;
+use App\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,6 +29,7 @@ class AdminHomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abs
 
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/admin", name="admin_home")
      */
     public function categories(Request $request){
@@ -40,6 +43,7 @@ class AdminHomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abs
 
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/xhr-admin-get-chart", name="xhr_admin_et_chart_data")
      */
     public function getAdminChartData(){
@@ -55,7 +59,7 @@ class AdminHomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abs
                 $tmp = [];
                 $tmp["id"] = $category->getId();
                 $tmp["nom"] = $category->getNom();
-                $tmp["color"] = "#".$this->stringToColorCode($category->getNom());
+                $tmp["color"] = $this->stringToColorCode($category->getNom());
                 $tmp["recueils_count"] = 0;
                 $recueils_by_categorie = $this->getDoctrine()->getRepository(Recueil::class)->findBy([
                     'categorie' => $category
@@ -77,7 +81,7 @@ class AdminHomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abs
                 $tmp = [];
                 $tmp["id"] = $source->getId();
                 $tmp["libelle"] = $source->getLibelle();
-                $tmp["color"] = "#".$this->stringToColorCode($source->getLibelle());
+                $tmp["color"] = $this->stringToColorCode($source->getLibelle());
                 $tmp["sourceUsername"] = $source->getSourceUsername();
                 $tmp["recueils_count"] = 0;
                 $recueils_by_source = $this->getDoctrine()->getRepository(Recueil::class)->findBy([
@@ -91,33 +95,84 @@ class AdminHomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abs
             }
         }
 
-        $now = new \DateTime( "30 days ago", new \DateTimeZone('Africa/Nairobi'));
+
+        // Line chart
+
+        $now = new \DateTime( "15 days ago", new \DateTimeZone('Africa/Nairobi'));
         $interval = new \DateInterval( 'P1D'); // 1 Day interval
-        $period = new \DatePeriod( $now, $interval, 30); // 7 Days
+        $period = new \DatePeriod( $now, $interval, 15); // 15 Days
 
         $date_data = [];
-        foreach( $period as $day) {
-            $date_data_item = [];
-            $date_data_item["date"] = $day->format( 'd-m-Y');
-            $date_data_item["recueils_total"] = 0 ;
-            $recueils = $this->getDoctrine()->getRepository(Recueil::class)->findAll();
 
+        $labels_array = [];
+
+        foreach( $period as $day) {
+
+            // push labels
+            array_push($labels_array, $day->format('d-m-Y'));
+        }
+
+        /*$recueils = $this->getDoctrine()->getRepository(Recueil::class)->findAll();
+        $chart_data_item = [];
+        $chart_data_item["id"] = 0;
+        $chart_data_item["nom_prenom"] = "Receuils Total";
+        $chart_data_item["color"] = $this->stringToColorCode("Receuils Total");
+        $chart_data_item["datasets"] = [];
+
+
+        foreach( $period as $day) {
+
+            // push labels
+            array_push($labels_array,$day->format( 'd-m-Y'));
+
+            $datasets = [];
+            $datasets["date"] =
+            $recueils_total = 0;
             if ($recueils != null){
                 foreach ($recueils as $recueil){
                     if ($recueil->getCreatedAt()->format('d-m-Y') == $day->format( 'd-m-Y')){
-                        $date_data_item["recueils_total"] ++;
+                        $recueils_total ++;
                     }
                 }
             }
-            array_push($date_data,$date_data_item);
-        }
+            array_push($chart_data_item["datasets"],$recueils_total);
 
+        }
+        array_push($date_data,$chart_data_item); */
+
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+
+        if ($users != null){
+            foreach ($users as $user){
+                $chart_data_item = [];
+                $chart_data_item["id"] = $user->getId();
+                $chart_data_item["nom_prenom"] = $user->getNom() .' '.$user->getPrenom();
+                $chart_data_item["color"] = $this->stringToColorCode($user->getNom() .''.$user->getPrenom());
+                $chart_data_item["datasets"] = [];
+                $user_recueils = $this->getDoctrine()->getManager()->getRepository(Recueil::class)->findBy([
+                    'utilisateur' => $user
+                ]);
+                foreach( $period as $day) {
+                    $recueils_total = 0;
+                    if ($user_recueils != null){
+                        foreach ($user_recueils as $recueil){
+                            if ($recueil->getCreatedAt()->format('d-m-Y') == $day->format( 'd-m-Y')){
+                                $recueils_total ++;
+                            }
+                        }
+                    }
+                    array_push($chart_data_item["datasets"],$recueils_total);
+                }
+                array_push($date_data,$chart_data_item);
+            }
+        }
 
 
         return new JsonResponse([
             'categorie_chart' => $categorie_array,
             'source_chart' => $sources_array,
             'date_chart' => $date_data,
+            'labels_array' => $labels_array,
         ],200);
 
     }
@@ -126,7 +181,7 @@ class AdminHomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abs
     function stringToColorCode($str) {
         $code = dechex(crc32($str));
         $code = substr($code, 0, 6);
-        return substr(md5($str), 0, 6);
+        return "#".substr(md5($str), 0, 6);
     }
 
 

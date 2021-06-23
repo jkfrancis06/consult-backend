@@ -18,7 +18,7 @@ window.onload = function () {
                     self.isLoading = false
                     self.createPieChart(response.data.categorie_chart,"cat")
                     self.createPieChart(response.data.source_chart,"source")
-                    self.createLineChart(response.data.date_chart)
+                    self.createLineChart(response.data.date_chart,response.data.labels_array)
                 })
                 .catch(function (error){
                     self.isLoading = false
@@ -81,15 +81,28 @@ window.onload = function () {
                 });
             },
 
-            createLineChart(data){
+            createLineChart(data,labels_array){
 
-                let labels = []
+                let labels = labels_array
                 let datas = []
+                let datasets = []
 
                 for (let i = 0; i < data.length; i++){
-                    labels.push(data[i].date);
-                    datas.push(data[i].recueils_total)
+                    let data_item = {
+                        label : '',
+                        fill : false,
+                        borderColor : '',
+                        borderWidth : 1,
+                        data : [],
+                        tension: 0.5
+                    }
+                    data_item.label = data[i].nom_prenom
+                    data_item.borderColor = data[i].color
+                    data_item.data = data[i].datasets
+                    datasets.push(data_item)
                 }
+
+                console.log(labels_array)
 
                 var ctx = document.getElementById("dayChart").getContext('2d');
 
@@ -97,14 +110,8 @@ window.onload = function () {
                     type: 'line',
                     data: {
                         labels: labels,
-                        datasets: [{
-                            label: 'Nombre  de recueils',
-                            data: datas,
-                            fill: false,
-                            borderColor: '#2196f3', // Add custom color border (Line)
-                            backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
-                            borderWidth: 1 // Specify bar border width
-                        }]},
+                        datasets: datasets
+                    },
                     options: {
                         responsive: true, // Instruct chart js to respond nicely.
                         maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height

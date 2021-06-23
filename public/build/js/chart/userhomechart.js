@@ -103,7 +103,9 @@ window.onload = function () {
                             fill: false,
                             borderColor: '#2196f3', // Add custom color border (Line)
                             backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
-                            borderWidth: 1 // Specify bar border width
+                            borderWidth: 1, // Specify bar border width
+                            tension: 0.5
+
                         }]},
                     options: {
                         responsive: true, // Instruct chart js to respond nicely.

@@ -22,7 +22,21 @@
                         </li>
                     {% endif %}
 
-
+                    <li class="nav-item dropdown">
+                        {% if active == "user" %}
+                            <a class="nav-link dropdown-toggle active"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Utilisateurs
+                            </a>
+                        {% else %}
+                            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Utilisateurs
+                            </a>
+                        {% endif %}
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('list_user') }}" >Liste</a></li>
+                            <li><a class="dropdown-item" href="{{ path('add_user') }}">Ajouter un utilisateur</a></li>
+                        </ul>
+                    </li>
 
 
                 </ul>
