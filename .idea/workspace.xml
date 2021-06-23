@@ -24,17 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/js/chart/adminhomechart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/js/chart/adminhomechart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/js/chart/userhomechart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/js/chart/userhomechart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminHomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminHomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UtilisateurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Source.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/home/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/home/dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminNav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminNav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/user_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/user_list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +265,7 @@
       <workItem from="1624033993282" duration="46000" />
       <workItem from="1624034042191" duration="10283000" />
       <workItem from="1624167143791" duration="31304000" />
-      <workItem from="1624340920512" duration="1428000" />
+      <workItem from="1624340920512" duration="2785000" />
     </task>
     <servers />
   </component>
