@@ -19,9 +19,8 @@ class Source
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     * @ORM\Column(type="integer", nullable=false)
-     * @ORM\SequenceGenerator(sequenceName="id_seq", initialValue=1, allocationSize=100)
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
