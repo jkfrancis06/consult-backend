@@ -7,6 +7,7 @@ use App\Entity\Categorie;
 use App\Entity\Recueil;
 use App\Entity\Source;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -27,6 +28,20 @@ class HomeController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
     public function __construct(Security $security)
     {
         $this->security = $security;
+    }
+
+
+    /**
+     * @Route("/parse", name="parse")
+     */
+    public function parse(){
+        $sources = $this->getDoctrine()->getManager()->getRepository(Source::class)->findAll();
+        foreach ($sources as $source){
+            $source->setLibelle(trim($source->getLibelle()));
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        }
+        return new Response('ok');
     }
 
     /**
