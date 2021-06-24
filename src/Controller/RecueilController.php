@@ -134,7 +134,6 @@ class RecueilController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->security->getUser();
             $receuil->setUtilisateur($user);
-            $receuil->setLienPost(substr($receuil->getLienPost(), 0, strpos($receuil->getLienPost(), "?"))) ;
             $em = $this->getDoctrine()->getManager();
             $em->persist($receuil);
             $em->flush();
