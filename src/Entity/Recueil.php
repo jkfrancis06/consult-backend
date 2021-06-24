@@ -21,7 +21,7 @@ class Recueil
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $lienPost;
 
