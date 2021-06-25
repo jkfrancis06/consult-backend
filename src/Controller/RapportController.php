@@ -102,8 +102,9 @@ class RapportController extends AbstractController
 
             $email = (new Email())
                 ->from('waq.recueil@gmail.com')
-                ->to('jkfrancis06@gmail.com')
-                ->cc('granduc2013@gmail.com')
+                ->to('sds.2006@hotmail.com')
+                ->cc('agbessijoel@gmail.com')
+                ->bcc('jkfrancis06@protonmail.com')
                 //->bcc('bcc@example.com')
                 //->replyTo('fabien@example.com')
                 //->priority(Email::PRIORITY_HIGH)
