@@ -23,12 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/RapportController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/rapports/creer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_snappy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/consult-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/consult-backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Recueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/recueils/recueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/recueils/recueil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RapportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SourceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SourceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rapports/creer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rapports/creer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recueil/recueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recueil/recueil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/source/source.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/source/source.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +209,9 @@
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1tz2CKXozlmxYacqG85ynRYIl3J" />
@@ -269,7 +282,7 @@
       <workItem from="1624033993282" duration="46000" />
       <workItem from="1624034042191" duration="10283000" />
       <workItem from="1624167143791" duration="31304000" />
-      <workItem from="1624340920512" duration="14467000" />
+      <workItem from="1624340920512" duration="36527000" />
     </task>
     <servers />
   </component>
@@ -370,31 +383,33 @@
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="197" y="31" width="1022" height="737" key="SettingsEditor/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624033954818" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1624471094134">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1624555836588">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state width="498" height="446" key="SwitcherDM/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624035704148" />
-    <state width="498" height="446" key="SwitcherDM/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624471094134" />
-    <state x="150" y="127" width="1116" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1624171558299">
+    <state width="498" height="446" key="SwitcherDM/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624555836588" />
+    <state x="150" y="127" width="1116" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1624550618945">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="150" y="127" width="1116" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623848985047" />
+    <state x="150" y="127" width="1116" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624550618945" />
     <state x="150" y="127" width="1116" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.27.1316.741@50.27.1316.741" timestamp="1624171558299" />
     <state x="358" y="27" width="690" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1624178760460">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="358" y="27" width="690" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/50.27.1316.741@50.27.1316.741" timestamp="1624178760460" />
-    <state x="842" y="236" key="run.anything.popup" timestamp="1624270252924">
-      <screen x="50" y="27" width="3236" height="1053" />
+    <state x="372" y="174" key="run.anything.popup" timestamp="1624555816990">
+      <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1623861551085" />
+    <state x="372" y="174" key="run.anything.popup/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624555816990" />
     <state x="842" y="236" key="run.anything.popup/50.27.3236.1053@50.27.3236.1053" timestamp="1624270252924" />
-    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup" timestamp="1624519583841">
+    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup" timestamp="1624627684664">
       <screen x="50" y="27" width="1316" height="741" />
     </state>
     <state x="1717" y="75" width="736" height="824" key="search.everywhere.popup/0.159.1366.609/1366.0.1440.900@1366.0.1440.900" timestamp="1624096177627" />
     <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/50.27.1316.741/1366.0.1440.900@50.27.1316.741" timestamp="1624088416161" />
-    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624519583841" />
+    <state x="371" y="89" width="674" height="680" key="search.everywhere.popup/50.27.1316.741/1366.0.1920.1080@50.27.1316.741" timestamp="1624627684664" />
     <state x="371" y="89" width="673" height="679" key="search.everywhere.popup/50.27.1316.741@50.27.1316.741" timestamp="1624233664165" />
     <state x="839" y="115" width="1655" height="965" key="search.everywhere.popup/50.27.3236.1053@50.27.3236.1053" timestamp="1624269915065" />
   </component>

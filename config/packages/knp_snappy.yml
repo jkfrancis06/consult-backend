@@ -1,0 +1,9 @@
+knp_snappy:
+  pdf:
+    enabled:    true
+    binary:     /usr/bin/wkhtmltopdf #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\"" for Windows users
+    options:    []
+  image:
+    enabled:    true
+    binary:     /usr/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
+    options:    []

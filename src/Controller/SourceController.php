@@ -7,6 +7,7 @@ use App\Entity\Recueil;
 use App\Entity\Source;
 use App\Form\RecueilType;
 use App\Form\SourceType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,7 +18,7 @@ class SourceController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstra
     /**
      * @Route("/sources", name="sources")
      */
-    public function sources(Request $request){
+    public function sources(Request $request, PaginatorInterface $paginator){
 
         $source = new Source();
 
@@ -38,8 +39,16 @@ class SourceController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstra
         }
 
 
+
+        $pagination = $paginator->paginate(
+            $sources, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
+
             return $this->render('source/source.html.twig',[
-            'sources' => $sources,
+            'sources' => $pagination,
             'form' => $form->createView(),
             'active' => "sources"
         ]);
