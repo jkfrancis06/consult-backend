@@ -101,4 +101,16 @@ class RecueilRepository extends ServiceEntityRepository
         return  $qb->getQuery()->getResult();
 
     }
+
+
+    public function getRecueilsBetween($start,$end,$categorie){
+        $qb = $this->createQueryBuilder('r');
+        $qb->where('r.createdAt BETWEEN :startdate AND :enddate')
+            ->andWhere('r.categorie = :categorie')
+            ->setParameter('startdate', $start)
+            ->setParameter('enddate', $end )
+            ->setParameter('categorie', $categorie );
+
+        return  $qb->getQuery()->getResult();
+    }
 }
