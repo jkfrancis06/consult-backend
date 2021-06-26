@@ -45,8 +45,7 @@ class RapportController extends AbstractController
 
         // TODO: change date
 
-        // $today = date("d-m-Y");
-        $today = Date('25-06-2021');
+        $today = date("d-m-Y");
 
         $recueil_found = false;
 
