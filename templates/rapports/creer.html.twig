@@ -45,8 +45,9 @@
                             <td style="color: navy">{{ categorie.recueils[0].nature }}</td>
                             <td class="text-uppercase">{{ categorie.recueils[0].source.libelle }}</td>
                             <td>{{ categorie.recueils[0].contenu }}</td>
-                            <td><a href="{{ categorie.recueils[0].lienPost }}">Voir la publication original</a></td>
+                            <td><a href="{{ categorie.recueils[0].lienPost }}">Voir la publication originale</a></td>
                             <td>{{ categorie.recueils[0].utilisateur.nom }} {{ categorie.recueils[0].utilisateur.prenom }}</td>
+
                         {% else %}
                             <td>{{ categorie.categorie.nom }}</td>
                             <td>N/A</td>
@@ -63,7 +64,7 @@
                                     <td style="color: navy">{{ recueil.nature }}</td>
                                     <td  class="text-uppercase">{{ recueil.source.libelle }}</td>
                                     <td>{{ recueil.contenu }}</td>
-                                    <td><a href="{{ recueil.lienPost }}">Voir le post original</a></td>
+                                    <td><a href="{{ recueil.lienPost }}">Voir la publication originale</a></td>
                                     <td>{{ recueil.utilisateur.nom }} {{ recueil.utilisateur.prenom }}</td>
                                 </tr>
                             {% endif %}

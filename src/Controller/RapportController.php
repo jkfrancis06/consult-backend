@@ -173,16 +173,15 @@ class RapportController extends AbstractController
         foreach( $period as $day) {
             array_push($date_period,$day);
         }
-
         if ($categories != null){
             foreach ($categories as $category){
                 $categorie_array_item = [];
                 $categorie_array_item["categorie"] = $category;
                 $categorie_array_item["recueils"] = [];
                 $categorie_recueils = $category->getRecueils();
+
                 foreach ($categorie_recueils as &$recueil){
-                    if ($date_period[0]->format('d-M-Y') <= $recueil->getCreatedAt()->format('d-m-Y') &&
-                        $recueil->getCreatedAt()->format('d-m-Y')  <= $date_period[count($date_period)-1]->format('d-M-Y')){
+                    if ($this->check_in_range($date_period[0]->format('d-M-Y'), $date_period[count($date_period)-1]->format('d-M-Y'),$recueil->getCreatedAt()->format('d-m-Y'))){
                         $found = false;
                         foreach ( $categorie_array_item["recueils"] as $item){ // if recueil is already listed
                             if ($item->getLienPost() == $recueil->getLienPost() ){
@@ -218,6 +217,7 @@ class RapportController extends AbstractController
         }
 
 
+
         $html =  $this->renderView('rapports/hebdo.html.twig',[
             'categories' => $categorie_array,
             'start' => $date_array[0],
@@ -230,10 +230,10 @@ class RapportController extends AbstractController
         }
 
         $options = [
-            'margin-top'    => 5,
-            'margin-right'  => 5,
-            'margin-bottom' => 5,
-            'margin-left'   => 5,
+            'margin-top'    => 20,
+            'margin-right'  => 20,
+            'margin-bottom' => 20,
+            'margin-left'   => 20,
         ];
 
         $pdf =  new PdfResponse(
@@ -286,4 +286,18 @@ class RapportController extends AbstractController
     }
 
 
+    function check_in_range($start_date, $end_date, $date_from_user)
+    {
+        // Convert to timestamp
+        $start_ts = strtotime($start_date);
+        $end_ts = strtotime($end_date);
+        $user_ts = strtotime($date_from_user);
+
+        // Check that user date is between start & end
+        return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
+    }
+
+
 }
+
+
