@@ -160,7 +160,7 @@ class RapportController extends AbstractController
     public function hebdoRapports(Request $request,Pdf $knpSnappyPdf,MailerInterface $mailer){
 
 
-        $now = new \DateTime( "6 days ago", new \DateTimeZone('Africa/Nairobi'));
+        $now = new \DateTime( "5 days ago", new \DateTimeZone('Africa/Nairobi'));
         $interval = new \DateInterval( 'P1D'); // 1 Day interval
         $period = new \DatePeriod( $now, $interval, 5); // 7 Days
 
@@ -219,6 +219,12 @@ class RapportController extends AbstractController
 
 
         $html =  $this->renderView('rapports/hebdo.html.twig',[
+            'categories' => $categorie_array,
+            'start' => $date_array[0],
+            'end' => $date_array[count($date_array)-1]
+        ]);
+
+        return $this->render('rapports/hebdo.html.twig',[
             'categories' => $categorie_array,
             'start' => $date_array[0],
             'end' => $date_array[count($date_array)-1]
