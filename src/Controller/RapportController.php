@@ -224,11 +224,7 @@ class RapportController extends AbstractController
             'end' => $date_array[count($date_array)-1]
         ]);
 
-        return $this->render('rapports/hebdo.html.twig',[
-            'categories' => $categorie_array,
-            'start' => $date_array[0],
-            'end' => $date_array[count($date_array)-1]
-        ]);
+
 
         $path = $this->getParameter('kernel.project_dir').'/public/upload/';
         if (!file_exists($path)) {
