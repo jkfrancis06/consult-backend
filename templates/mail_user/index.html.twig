@@ -1,0 +1,44 @@
+{% extends 'adminNav.html.twig' %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h3>Mailing List</h3>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>CreatedAt</th>
+                <th>LastUpdate</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mail_user in mail_users %}
+                <tr>
+                    <td>{{ mail_user.id }}</td>
+                    <td>{{ mail_user.email }}</td>
+                    <td>{{ mail_user.name }}</td>
+                    <td>{{ mail_user.createdAt ? mail_user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ mail_user.lastUpdate ? mail_user.lastUpdate|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('mail_user_show', {'id': mail_user.id}) }}">show</a>
+                        <a href="{{ path('mail_user_edit', {'id': mail_user.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('mail_user_new') }}">Create new</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'adminNav.html.twig' %}
+
+{% block javascripts %}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container mt-5">
+
+        <h1>Edit MailUser</h1>
+
+        {{ include('mail_user/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('mail_user_index') }}">back to list</a>
+
+        {{ include('mail_user/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

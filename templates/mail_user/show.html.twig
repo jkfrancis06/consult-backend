@@ -1,0 +1,43 @@
+{% extends 'adminNav.html.twig' %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <h3>MailUser</h3>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mail_user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ mail_user.email }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mail_user.name }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ mail_user.createdAt ? mail_user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LastUpdate</th>
+                <td>{{ mail_user.lastUpdate ? mail_user.lastUpdate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('mail_user_index') }}">back to list</a>
+
+        <a href="{{ path('mail_user_edit', {'id': mail_user.id}) }}">edit</a>
+
+        {{ include('mail_user/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}

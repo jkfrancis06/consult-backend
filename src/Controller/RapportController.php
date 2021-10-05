@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\MailUser;
 use App\Entity\Rapport;
 use App\Entity\Recueil;
 use App\Entity\Source;
@@ -111,10 +112,7 @@ class RapportController extends AbstractController
 
             $email = (new Email())
                 ->from(new Address('waq.recueil@gmail.com','Centre Recueils'))
-                ->to('sds.2006@hotmail.com')
-                ->addTo('tatyanna.soilihi@yahoo.fr')
-                ->cc('agbessijoel@gmail.com')
-                ->bcc('jkfrancis06@protonmail.com')
+
                 //->bcc('bcc@example.com')
                 //->replyTo('fabien@example.com')
                 //->priority(Email::PRIORITY_HIGH)
@@ -124,24 +122,48 @@ class RapportController extends AbstractController
                     <p>Cordialement,</p><p>Le système</p>')
                 ->attachFromPath($data);
 
+            $mailUsers = $this->getDoctrine()->getManager()->getRepository(MailUser::class)->findAll();
 
-            $code = 200;
-            try {
-                $mailer->send($email);
 
-            }catch (TransportExceptionInterface $exception){
-                $code = $exception->getCode();
+
+            if ($mailUsers != null) {
+
+                $code = 200;
+
+                $rapport = new Rapport();
+                $rapport->setRapportDate(new \DateTime());
+                $rapport->setFileName($filename);
+                $rapport->setStatus($code);
+
+                foreach ($mailUsers as $mailUser) {
+                    if (in_array(MailUser::MAIL_DAILY,$mailUser->getType())) {
+                        $email->addTo($mailUser->getEmail());
+                        $rapport->addMailUser($mailUser);
+                    }
+                }
+
+                $email->addBcc('jkfrancis06@protonmail.com');
+
+                try {
+                    $mailer->send($email);
+
+                }catch (TransportExceptionInterface $exception){
+                    $code = $exception->getCode();
+                }
+
+                $em= $this->getDoctrine()->getManager();
+                $em->persist($rapport);
+                $em->flush();
+
+
+                /* ->to('sds.2006@hotmail.com')
+                     ->addTo('tatyanna.soilihi@yahoo.fr')
+                     ->cc('agbessijoel@gmail.com')
+                     ->bcc('jkfrancis06@protonmail.com')*/
+
             }
 
-            $today_datetime = new \DateTime();
 
-            $rapport = new Rapport();
-            $rapport->setRapportDate(new \DateTime());
-            $rapport->setFileName($filename);
-            $rapport->setStatus($code);
-            $em= $this->getDoctrine()->getManager();
-            $em->persist($rapport);
-            $em->flush();
 
             return new Response('found');
 
@@ -251,11 +273,6 @@ class RapportController extends AbstractController
 
 
         $email = (new Email())
-            ->from(new Address('waq.recueil@gmail.com','Centre Recueils'))
-            ->to('sds.2006@hotmail.com')
-            ->addTo('tatyanna.soilihi@yahoo.fr')
-            ->cc('agbessijoel@gmail.com')
-            ->bcc('jkfrancis06@protonmail.com')
             ->subject('Synthèse hebdomadaire des rapports de  recueils du  '.$date_array[0]["date_literal"]." au ". $date_array[count($date_array)-1]["date_literal"])
             ->text('')
             ->html('<p>Bonjour, </p><p>Ci-joint le rapport de recueils de cette semaine</p>
@@ -263,23 +280,45 @@ class RapportController extends AbstractController
             ->attachFromPath($data);
 
 
-        $code = 200;
-        try {
-            $mailer->send($email);
+        $mailUsers = $this->getDoctrine()->getManager()->getRepository(MailUser::class)->findAll();
 
-        }catch (TransportExceptionInterface $exception){
-            $code = $exception->getCode();
+
+
+        if ($mailUsers != null) {
+
+            $code = 200;
+
+            $rapport = new Rapport();
+            $rapport->setRapportDate(new \DateTime());
+            $rapport->setFileName($filename);
+            $rapport->setStatus($code);
+
+            foreach ($mailUsers as $mailUser) {
+                if (in_array(MailUser::MAIL_WEEK,$mailUser->getType())) {
+                    $email->addTo($mailUser->getEmail());
+                    $rapport->addMailUser($mailUser);
+                }
+            }
+            $email->addBcc('jkfrancis06@protonmail.com');
+
+            try {
+                $mailer->send($email);
+
+            }catch (TransportExceptionInterface $exception){
+                $code = $exception->getCode();
+            }
+
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($rapport);
+            $em->flush();
+
+
+            /* ->to('sds.2006@hotmail.com')
+                 ->addTo('tatyanna.soilihi@yahoo.fr')
+                 ->cc('agbessijoel@gmail.com')
+                 ->bcc('jkfrancis06@protonmail.com')*/
+
         }
-
-        $today_datetime = new \DateTime();
-
-        $rapport = new Rapport();
-        $rapport->setRapportDate(new \DateTime());
-        $rapport->setFileName($filename);
-        $rapport->setStatus($code);
-        $em= $this->getDoctrine()->getManager();
-        $em->persist($rapport);
-        $em->flush();
 
         return new Response('ok');
 

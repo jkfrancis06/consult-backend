@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RapportRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,9 +39,15 @@ class Rapport
      */
     private $status;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=MailUser::class, mappedBy="Rapports")
+     */
+    private $mailUsers;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->mailUsers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,5 +101,36 @@ class Rapport
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|MailUser[]
+     */
+    public function getMailUsers(): Collection
+    {
+        return $this->mailUsers;
+    }
+
+    public function addMailUser(MailUser $mailUser): self
+    {
+        if (!$this->mailUsers->contains($mailUser)) {
+            $this->mailUsers[] = $mailUser;
+            $mailUser->addRapport($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMailUser(MailUser $mailUser): self
+    {
+        if ($this->mailUsers->removeElement($mailUser)) {
+            $mailUser->removeRapport($this);
+        }
+
+        return $this;
+    }
+
+    public function __toString(){
+        return $this->createdAt->format('d-m-Y H:i:s');
     }
 }
