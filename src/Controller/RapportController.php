@@ -118,8 +118,8 @@ class RapportController extends AbstractController
                 //->priority(Email::PRIORITY_HIGH)
                 ->subject('Rapport recueils du '.$today)
                 ->text('')
-                ->html('<p>Bonjour, </p><p>Ci-joint le rapport de recueils de ce jour</p>
-                    <p>Cordialement,</p><p>Le système</p>')
+                ->html('<p>Bonjour, </p><p>Ci-joint le rapport de recueils (annexe) de ce jour</p>
+                    <p>Cordialement,</p><p>Le système (annexe)</p>')
                 ->attachFromPath($data);
 
             $mailUsers = $this->getDoctrine()->getManager()->getRepository(MailUser::class)->findAll();
