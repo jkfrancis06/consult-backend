@@ -23,12 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="782d80e2-a325-4a1c-918b-1ebef8338625" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RapportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Rapport.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Rapport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminNav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminNav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,6 +290,7 @@
       <workItem from="1629914089018" duration="1203000" />
       <workItem from="1629957798394" duration="24000" />
       <workItem from="1633450373549" duration="5983000" />
+      <workItem from="1704995240549" duration="81000" />
     </task>
     <servers />
   </component>
